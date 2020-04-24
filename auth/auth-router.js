@@ -8,11 +8,16 @@ const secrets = require('../api/secrets');
 router.post('/register', (req, res) => {
   // implement registration
   let user = req.body;
-  const hash = bcrypt.hashSync(user.password, 12);
-  user.password = hash;
-  Users.add(user)
-    .then(user => res.status(201).json(user))
-    .catch(({name, message, stack, code }) => res.status(500).json({name, message, stack, code }))
+  if (user.username && user.password) {
+    const hash = bcrypt.hashSync(user.password, 12);
+    user.password = hash;
+    Users.add(user)
+      .then(user => res.status(201).json(user))
+      .catch(({name, message, stack, code }) => res.status(500).json({name, message, stack, code }))
+  } else {
+    res.status(404).json({message: "Missing username or password"});
+  }
+  
 });
 
 router.post('/login', (req, res) => {
