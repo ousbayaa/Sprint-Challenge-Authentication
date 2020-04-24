@@ -39,12 +39,18 @@ Commit your code regularly and use descriptive messages. This helps both you (in
 Demonstrate your understanding of this week's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] What is the purpose of using _sessions_?
+Purpose of using sessions is to persist authentication information across requests.
 
 - [ ] What does bcrypt do to help us store passwords in a secure manner.
+Bcrypt hashes the password to help us store in a secure manner.
 
 - [ ] What does bcrypt do to slow down attackers?
+Bcrypt uses a Key Derivation Function to slow down attackers by adding in time.
 
 - [ ] What are the three parts of the JSON Web Token?
+Header: which contains the algorithm with the token type.
+Payload: The payload includes claims information or any other data to be stored in the token.
+Signature: A combination of header and payload that is signed with a secret.
 
 ## Minimum Viable Product
 
